@@ -36,6 +36,28 @@ public class Card {
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     private List<Book> booksIssued;
 
+    public List<Book> getBooksIssued() {
+        return booksIssued;
+    }
+
+    public void setBooksIssued(List<Book> booksIssued) {
+        this.booksIssued = booksIssued;
+    }
+
+    public List<Transactions> getTransactionsList() {
+        return transactionsList;
+    }
+
+    public void setTransactionsList(List<Transactions> transactionsList) {
+        this.transactionsList = transactionsList;
+    }
+
+    //connecting the card class to transaction
+    //this is bydirection mapping
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    private List<Transactions> transactionsList=new ArrayList<>();
+
+
 
 
     public Student getStudentVariableName() {
